@@ -19,7 +19,7 @@ if os.environ.get("ENVIRONMENT", default=None) in ENVIRONMENTS:
     BOT_LOG_FILE = r'errbot.log'
     BOT_LOG_LEVEL = logging.INFO
 
-BOT_ADMINS = os.environ.get("BOT_ADMINS", default=None).split(",")
+BOT_ADMINS = os.environ.get("BOT_ADMINS", default="").split(",")
 
 BOT_ALT_PREFIXES = ('@mr_robot',)
 
