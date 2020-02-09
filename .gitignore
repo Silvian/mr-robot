@@ -57,6 +57,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+*.pyc
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -100,6 +101,9 @@ celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
+
+# Integrated Development Environment
+.idea
 
 # Environments
 .env
