@@ -1,0 +1,9 @@
+[Core]
+Name = ContinuousDeployment
+Module = continuousdeployment
+
+[Documentation]
+Description = Performs releases to production environment.
+
+[Python]
+Version = 2+
