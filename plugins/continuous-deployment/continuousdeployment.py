@@ -19,4 +19,4 @@ class ContinuousDeployment(BotPlugin):
         except OSError:
             return "Failed to run release script... :disappointed:"
 
-        return "Releasing to production! :sunglasses:"
+        return "Released to production! :sunglasses:"
