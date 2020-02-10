@@ -1,0 +1,9 @@
+[Core]
+Name = Fun
+Module = fun
+
+[Documentation]
+Description = Some fun and games to be had here.
+
+[Python]
+Version = 2+
