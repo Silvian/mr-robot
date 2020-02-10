@@ -14,7 +14,7 @@ class Fun(BotPlugin):
     def listen_for_talk_of_kanye_west(self, msg, match):
         return "Kanye West says: {}".format(self.kanye_rest())
 
-    @re_botcmd(pattern=r"(^| )cat?( |$)", prefixed=False, flags=re.IGNORECASE)
+    @re_botcmd(pattern=r"(^| )cats?( |$)", prefixed=False, flags=re.IGNORECASE)
     def listen_for_talk_of_cats(self, msg, match):
         return self.get_cat_facts()
 
