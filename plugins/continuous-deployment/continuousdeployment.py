@@ -17,7 +17,7 @@ class ContinuousDeployment(BotPlugin):
         try:
             yield "Releasing to production... hang on tight :wink:"
             subprocess.call([self.RELEASE_SCRIPT])
-            yield "{} Release to production is now complete! :sunglasses:".format(
+            yield "{} release to production is now complete! :sunglasses:".format(
                 msg.frm.person
             )
         except OSError:
