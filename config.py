@@ -6,8 +6,7 @@ import logging
 # the options in the more complete config-template.py from here:
 # https://raw.githubusercontent.com/errbotio/errbot/master/errbot/config-template.py
 
-BACKEND = 'Slack'  # Errbot will start in Slack mode.
-
+BACKEND = 'Text'  # Errbot will start in Text mode.
 ENVIRONMENTS = ("staging", "production")
 BOT_DATA_DIR = r'data'
 BOT_EXTRA_PLUGIN_DIR = r'plugins'
@@ -16,6 +15,7 @@ BOT_LOG_FILE = r'errbot.log'
 BOT_LOG_LEVEL = logging.DEBUG
 
 if os.environ.get("ENVIRONMENT", default=None) in ENVIRONMENTS:
+    BACKEND = 'Slack'  # Errbot will start in Slack mode.
     BOT_LOG_FILE = r'errbot.log'
     BOT_LOG_LEVEL = logging.INFO
 
