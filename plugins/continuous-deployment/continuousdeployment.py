@@ -26,7 +26,7 @@ class ContinuousDeployment(BotPlugin):
             raise Exception("Failed to run release script... :disappointed:")
 
     @botcmd
-    def update_yourself(self, msg, args):
+    def self_update(self, msg, args):
         if not self.BOT_UPDATE_SCRIPT:
             raise Exception("No update script configured. :persevere:")
 
