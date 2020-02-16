@@ -10,7 +10,6 @@ class Fun(BotPlugin):
     KANYE_REST_API = "https://api.kanye.rest"
     CAT_FACT_API = "https://catfact.ninja/fact"
     MEMES_API = "https://meme-api.herokuapp.com/gimme"
-    WEATHER_API = "https://community-open-weather-map.p.rapidapi.com/weather"
 
     @re_botcmd(pattern=r"(^| )kanye?( |$)", prefixed=False, flags=re.IGNORECASE)
     def listen_for_talk_of_kanye_west(self, msg, match):
@@ -24,10 +23,6 @@ class Fun(BotPlugin):
     def listen_memes(self, msg, match):
         return self.get_memes()
 
-    @re_botcmd(pattern=r"(^| )weather?( |$)", prefixed=False, flags=re.IGNORECASE)
-    def listen_weather(self, msg, match):
-        return self.get_weather()
-
     @botcmd
     def kanye_west_quote(self, msg, args):
         return "Kanye West says: {}".format(self.kanye_rest())
@@ -39,10 +34,6 @@ class Fun(BotPlugin):
     @botcmd
     def meme(self, msg, args):
         return self.get_memes()
-
-    @botcmd
-    def get_weather(self, msg, args):
-        return self.get_weather()
     
     def kanye_rest(self):
         response = requests.get(self.KANYE_REST_API).json()
@@ -58,9 +49,3 @@ class Fun(BotPlugin):
         response = requests.get(self.MEMES_API).json()
         image = response["url"]
         return image
-
-    def get_weather(self):
-        response = requests.get(self.WEATHER_API).json()
-        status = response["url"]
-        return status
-        
