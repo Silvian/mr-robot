@@ -49,4 +49,3 @@ class Fun(BotPlugin):
         response = requests.get(self.MEMES_API).json()
         image = response["url"]
         return image
-
