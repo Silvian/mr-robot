@@ -41,13 +41,11 @@ class Weather(BotPlugin):
         country = response_data["location"]["country"]
         description = response_data["current"]["weather_descriptions"][0]
         temp = response_data["current"]["temperature"]
-        icon = response_data["current"]["weather_icons"][0]
 
-        weather_response = "The weather in {location_name}, {country} is {description}, with Temperature {temp} deg {icon}".format(
+        weather_response = "The weather in {location_name}, {country} is {description}, with a temperature {temp} deg ".format(
             location_name=location_name,
             country=country,
             description=description,
             temp=temp,
-            icon=icon,
         )
         return weather_response
