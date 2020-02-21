@@ -16,7 +16,7 @@ BOT_LOG_LEVEL = logging.DEBUG
 
 if os.environ.get("ENVIRONMENT", default=None) in ENVIRONMENTS:
     BACKEND = 'Slack'  # Errbot will start in Slack mode.
-    BOT_LOG_FILE = r'errbot.log'
+    BOT_LOG_FILE = os.environ.get("LOG_FILE", default=r'errbot.log')
     BOT_LOG_LEVEL = logging.INFO
 
 BOT_ADMINS = os.environ.get("BOT_ADMINS", default="").split(",")
