@@ -5,18 +5,20 @@ from errbot import BotPlugin, botcmd
 
 
 class Weather(BotPlugin):
-    """This is getting you a weather update."""
+    """Weather reports from any specified city location."""
 
     WEATHER_API = "http://api.weatherstack.com/current"
     WEATHER_API_KEY = os.environ.get("WEATHER_API_KEY", None)
 
     @botcmd
     def get_weather(self, msg, args):
+        """Retrieve weather data from any specified city location."""
         if not args:
             return "Please specify a city name."
         return self.get_weather_api(args)
 
     def get_weather_api(self, city_name):
+        """Perform weather api request."""
         if not self.WEATHER_API_KEY:
             raise Exception("No weather api key configured. :persevere:")
 
