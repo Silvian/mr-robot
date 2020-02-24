@@ -13,26 +13,32 @@ class Fun(BotPlugin):
 
     @re_botcmd(pattern=r"(^| )kanye?( |$)", prefixed=False, flags=re.IGNORECASE)
     def listen_for_talk_of_kanye_west(self, msg, match):
+        """Listens for any mention of Kanye West."""
         return "Kanye West says: {}".format(self.kanye_rest())
 
     @re_botcmd(pattern=r"(^| )cat[s]?( |$)", prefixed=False, flags=re.IGNORECASE)
     def listen_for_talk_of_cats(self, msg, match):
+        """Listenst for any mention of cats."""
         return self.get_cat_facts()
 
     @re_botcmd(pattern=r"(^| )meme[s]?( |$)", prefixed=False, flags=re.IGNORECASE)
     def listen_memes(self, msg, match):
+        """Listens for any mention of memes."""
         return self.get_memes()
 
     @botcmd
     def kanye_west_quote(self, msg, args):
+        """Provides a Kanye West Quote."""
         return "Kanye West says: {}".format(self.kanye_rest())
 
     @botcmd
     def cat_facts(self, msg, args):
+        """Provides a cat fact."""
         return self.get_cat_facts()
 
     @botcmd
     def meme(self, msg, args):
+        """Provides a meme."""
         return self.get_memes()
     
     def kanye_rest(self):

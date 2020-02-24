@@ -6,5 +6,6 @@ class HelloWorld(BotPlugin):
 
     @botcmd
     def hello(self, msg, args):
+        """Says hello world. :)"""
         return "Hello World :raised_hands:"
 

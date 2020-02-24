@@ -13,6 +13,7 @@ class ContinuousDeployment(BotPlugin):
 
     @botcmd
     def release_production(self, msg, args):
+        """Perform release to production environment."""
         if not self.RELEASE_SCRIPT:
             raise Exception("No release script configured. :persevere:")
 
@@ -27,6 +28,7 @@ class ContinuousDeployment(BotPlugin):
 
     @botcmd
     def self_update(self, msg, args):
+        """Perform a release update of the bot."""
         if not self.BOT_UPDATE_SCRIPT:
             raise Exception("No update script configured. :persevere:")
 
