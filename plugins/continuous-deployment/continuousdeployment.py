@@ -10,6 +10,8 @@ class ContinuousDeployment(BotPlugin):
 
     RELEASE_SCRIPT = os.environ.get("RELEASE_SCRIPT", default=None)
     BOT_UPDATE_SCRIPT = os.environ.get("BOT_UPDATE_SCRIPT", default=None)
+    HASH_FILE_PATH = os.environ.get("HASH_FILE_PATH", default=None)
+    GITHUB_URL = os.environ.get("GITHUB_URL", default=None)
 
     @botcmd
     def release_production(self, msg, args):
@@ -43,3 +45,17 @@ class ContinuousDeployment(BotPlugin):
             global_restart()
         except OSError:
             raise Exception("Failed to run update script... :disappointed:")
+
+    @botcmd
+    def show_changes(self, msg, args):
+        """Shows git changes between master and what's released"""
+        if not self.HASH_FILE_PATH:
+            raise Exception("No hash file path configured... :disappointed:")
+        if not self.GITHUB_URL:
+            raise Exception("No github url configured... :disappointed:")
+
+        with open(self.HASH_FILE_PATH, 'r', encoding="utf-8") as hash_file:
+            compare_hash = hash_file.readline().strip('\n')
+
+            compare_url = "{}compare/{}...master".format(self.GITHUB_URL, compare_hash)
+            return compare_url
