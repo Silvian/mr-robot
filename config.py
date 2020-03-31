@@ -14,23 +14,21 @@ BOT_EXTRA_PLUGIN_DIR = r'plugins'
 BOT_LOG_FILE = r'errbot.log'
 BOT_LOG_LEVEL = logging.DEBUG
 
+BOT_ALT_PREFIXES = ('@mr_robot',)
+BOT_ADMINS = os.environ.get("BOT_ADMINS", default="@admin").split(",")
+
 if os.environ.get("ENVIRONMENT", default=None) in ENVIRONMENTS:
     BACKEND = 'Slack'  # Errbot will start in Slack mode.
+    ACCESS_CONTROLS_DEFAULT = {'allowusers': BOT_ADMINS}  # Only admins are allowed to perform any actions.
+
     BOT_LOG_FILE = os.environ.get("LOG_FILE", default=r'errbot.log')
     BOT_LOG_LEVEL = logging.INFO
 
-BOT_ADMINS = os.environ.get("BOT_ADMINS", default="").split(",")
-
-BOT_ALT_PREFIXES = ('@mr_robot',)
+    # Security configurations:
+    HIDE_RESTRICTED_COMMANDS = True
+    HIDE_RESTRICTED_ACCESS = True
 
 # Slack API token
 BOT_IDENTITY = {
     'token': os.environ.get("BOT_IDENTITY_KEY", default=None)
 }
-
-# Security configurations:
-HIDE_RESTRICTED_COMMANDS = True
-HIDE_RESTRICTED_ACCESS = True
-
-
-ACCESS_CONTROLS_DEFAULT = {'allowusers': BOT_ADMINS}  # Only admins are allowed to perform any actions
