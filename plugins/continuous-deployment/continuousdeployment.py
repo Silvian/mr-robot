@@ -10,6 +10,7 @@ class ContinuousDeployment(BotPlugin):
 
     RELEASE_SCRIPT = os.environ.get("RELEASE_SCRIPT", default=None)
     BOT_UPDATE_SCRIPT = os.environ.get("BOT_UPDATE_SCRIPT", default=None)
+    ATTENDANCE_PROCESSOR_SCRIPT = os.environ.get("ATTENDANCE_PROCESSOR_SCRIPT", default=None)
     HASH_FILE_PATH = os.environ.get("HASH_FILE_PATH", default=None)
     GITHUB_URL = os.environ.get("GITHUB_URL", default=None)
 
@@ -27,6 +28,21 @@ class ContinuousDeployment(BotPlugin):
             )
         except OSError:
             raise Exception("Failed to run release script... :disappointed:")
+
+    @botcmd
+    def release_attendance_processor(self, msg, args):
+        """Perform release of the attendance processor."""
+        if not self.ATTENDANCE_PROCESSOR_SCRIPT:
+            raise Exception("No attendance processor release script configured. :persevere:")
+
+        try:
+            yield "Releasing attendance processor... hang on tight :rocket:"
+            subprocess.call([self.ATTENDANCE_PROCESSOR_SCRIPT])
+            yield "{} attendance processor is now released! :sunglasses:".format(
+                msg.frm.person
+            )
+        except OSError:
+            raise Exception("Failed to run attendance processor release script... :disappointed:")
 
     @botcmd
     def self_update(self, msg, args):
