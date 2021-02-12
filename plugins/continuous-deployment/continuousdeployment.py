@@ -11,6 +11,7 @@ class ContinuousDeployment(BotPlugin):
     RELEASE_SCRIPT = os.environ.get("RELEASE_SCRIPT", default=None)
     BOT_UPDATE_SCRIPT = os.environ.get("BOT_UPDATE_SCRIPT", default=None)
     ATTENDANCE_PROCESSOR_SCRIPT = os.environ.get("ATTENDANCE_PROCESSOR_SCRIPT", default=None)
+    ENROLLMENT_PROCESSOR_SCRIPT = os.environ.get("ENROLLMENT_PROCESSOR_SCRIPT", default=None)
     HASH_FILE_PATH = os.environ.get("HASH_FILE_PATH", default=None)
     GITHUB_URL = os.environ.get("GITHUB_URL", default=None)
 
@@ -43,6 +44,21 @@ class ContinuousDeployment(BotPlugin):
             )
         except OSError:
             raise Exception("Failed to run attendance processor release script... :disappointed:")
+
+    @botcmd
+    def release_enrollment_processor(self, msg, args):
+        """Perform release of the enrollment processor."""
+        if not self.ENROLLMENT_PROCESSOR_SCRIPT:
+            raise Exception("No enrollment processor release script configured. :persevere:")
+
+        try:
+            yield "Releasing enrollment processor... hang on tight :rocket:"
+            subprocess.call([self.ENROLLMENT_PROCESSOR_SCRIPT])
+            yield "{} enrollment processor is now released! :sunglasses:".format(
+                msg.frm.person
+            )
+        except OSError:
+            raise Exception("Failed to run enrollment processor release script... :disappointed:")
 
     @botcmd
     def self_update(self, msg, args):
