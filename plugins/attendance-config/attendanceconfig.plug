@@ -1,0 +1,9 @@
+[Core]
+Name = AttendanceConfig
+Module = attendanceconfig
+
+[Documentation]
+Description = Allows management of the attendance processor configuration values.
+
+[Python]
+Version = 2+
