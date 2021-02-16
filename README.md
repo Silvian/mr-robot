@@ -1,4 +1,6 @@
 # mr-robot
+[![<Mr. Robot>](https://circleci.com/gh/circleci/circleci-docs.svg?style=shield)](https://app.circleci.com/pipelines/github/Silvian/mr-robot)
+
 Mr Robot is an errbot implementation used as a utility slack bot.
 
 ## Getting started
