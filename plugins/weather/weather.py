@@ -35,7 +35,7 @@ class Weather(BotPlugin):
             raise Exception("Weather exception: {}".format(response.text))
 
         response_data = response.json()
-        if not response_data.get("success", None):
+        if response_data.get("error", None):
             raise Exception("Weather exception: {}".format(response_data["error"]["info"]))
 
         location_name = response_data["location"]["name"]
