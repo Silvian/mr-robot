@@ -68,7 +68,6 @@ def test_get_weather_api_response_success(mock_request, testbot):
     expected = 'The weather in London, United Kingdom is Clear, with a temperature 10 deg'
     mock_request.return_value.status_code = 200
     response_data = {
-        "success": "true",
         "location": {
             "name": "London",
             "country": "United Kingdom",
