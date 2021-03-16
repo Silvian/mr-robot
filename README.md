@@ -9,3 +9,9 @@ Mr Robot is an errbot implementation used as a utility slack bot.
 2. Create a python 3 virtual environment
 3. Run `pip install -r requirements.txt`
 4. Simply run `errbot`
+
+## Testing
+
+To run all unit and integration tests simply run:
+
+`pytest`
