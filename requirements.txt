@@ -12,7 +12,7 @@ cryptography==3.4.6
 daemonize==2.5.0
 deepmerge==0.2.1
 dulwich==0.20.20
-errbot==6.1.7
+errbot==6.1.8
 Flask==1.1.2
 idna==2.10
 importlib-metadata==3.7.3
