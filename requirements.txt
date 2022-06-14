@@ -42,7 +42,7 @@ urllib3==1.26.5
 waitress==2.0.0
 WebOb==1.8.7
 websocket-client==0.54.0
-WebTest==2.0.35
+webTest==3.0.0
 Werkzeug==1.0.1
 yarl==1.6.3
 zipp==3.4.1
